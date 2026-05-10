@@ -17,10 +17,18 @@ html, body {
    ===================== */
 
 .navbar {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 72px;
+    height: 60px;
     overflow: hidden;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
 }
 
 .navbar__bg {
@@ -38,7 +46,7 @@ html, body {
     height: 40px;
     width: auto;
     display: block;
-    margin: 16px 0 0 32px;
+    margin: 10px 0 0 32px;
 }
 
 /* =====================
@@ -87,15 +95,6 @@ html, body {
     gap: 12px;
 }
 
-/* .footer__links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    transition: color .15s;
-} */
-
-/* .footer__links a:hover { color: #fff; } */
-
 .footer__bottom {
     display: flex;
     align-items: center;
@@ -104,29 +103,6 @@ html, body {
     font-size: 13px;
     color: rgba(255,255,255,0.4);
 }
-
-/* .footer__bottom-left {
-    display: flex;
-    gap: 24px;
-} */
-
-/* .footer__bottom-left a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color .15s;
-} */
-
-/* .footer__bottom-left a:hover { color: #fff; } */
-
-/* .footer__status {
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 999px;
-    padding: 5px 14px;
-    color: rgba(255,255,255,0.5);
-} */
 
 .footer__social {
     display: flex;
@@ -146,9 +122,46 @@ html, body {
     transition: border-color .15s, color .15s;
 }
 
-/* .footer__social a:hover {
-    border-color: #fff;
-    color: #fff;
-} */
+/* =====================
+   BANNER
+   ===================== */
+   
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
 
-/* .footer__social i { font-size: 17px; line-height: 1; } */
+.banner__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner__avatars {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 32px;
+}
+
+.banner__avatar {
+    display: block;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 3px solid #fff; */
+    flex-shrink: 0;
+}
+
+.banner__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
